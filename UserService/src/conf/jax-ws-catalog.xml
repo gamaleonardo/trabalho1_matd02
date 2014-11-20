@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://home:8080/UserServiceDAO/UserServiceDAO?wsdl" uri="wsdl/home_8080/UserServiceDAO/UserServiceDAO.wsdl"/>
+    <system systemId="http://home:8080/UserServiceDAO/UserServiceDAO?xsd=1" uri="wsdl/home_8080/UserServiceDAO/UserServiceDAO.xsd_1.xsd"/>
+</catalog>

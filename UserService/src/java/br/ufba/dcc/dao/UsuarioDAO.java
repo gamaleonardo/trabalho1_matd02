@@ -20,10 +20,9 @@ public class UsuarioDAO {
 	}
 	
 	public void cadastrarUsuario(Usuario usuario){
-		String sql = "INSERT INTO \"Usuarios\" (nome,login,senha) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO \"Usuarios\" (login,senha) VALUES (?, ?)";
 		try {
 			PreparedStatement prep = con.prepareStatement(sql);
-			prep.setString(1, usuario.getNome());
 			prep.setString(2, usuario.getLogin());
 			prep.setString(3, usuario.getSenha());
 			System.out.println(prep.toString());
@@ -35,13 +34,11 @@ public class UsuarioDAO {
 	}
 	
 	public void atualizarUsuario(Usuario usuario){
-		String sql = "UPDATE \"Usuarios\" set nome = ?, login = ?, senha = ? WHERE login = ?";
+		String sql = "UPDATE \"Usuarios\" set login = ?, senha = ? WHERE login = ?";
 		try {
 			PreparedStatement prep = con.prepareStatement(sql);
-			prep.setString(1, usuario.getNome());
-			prep.setString(2, usuario.getLogin());
-			prep.setString(3, usuario.getSenha());
-			prep.setString(4, usuario.getLogin());
+			prep.setString(1, usuario.getLogin());
+			prep.setString(2, usuario.getSenha());
 			System.out.println(prep.toString());
 			prep.execute();
 			prep.close();
@@ -51,10 +48,10 @@ public class UsuarioDAO {
 	}
 	
 	public void deletarUsuario(Usuario usuario){
-		String sql = "DELETE FROM \"Usuarios\" WHERE nome = ?";
+		String sql = "DELETE FROM \"Usuarios\" WHERE login = ?";
 		try {
 			PreparedStatement prep = con.prepareStatement(sql);
-			prep.setString(1, usuario.getNome());
+			prep.setString(1, usuario.getLogin());
 			System.out.println(prep.toString());
 			prep.execute();
 			prep.close();
@@ -74,7 +71,6 @@ public class UsuarioDAO {
 			while(res.next()){
 				Usuario temp = new Usuario();
 				temp.setId(res.getInt("id"));
-				temp.setNome(res.getString("nome"));
 				temp.setLogin(res.getString("login"));
 				temp.setSenha(res.getString("senha"));
 				list.add(temp);
@@ -97,7 +93,6 @@ public class UsuarioDAO {
 			while(res.next()){
 				Usuario temp = new Usuario();
 				temp.setId(res.getInt("id"));
-				temp.setNome(res.getString("nome"));
 				temp.setLogin(res.getString("login"));
 				temp.setSenha(res.getString("senha"));
 				list.add(temp);
@@ -123,7 +118,6 @@ public class UsuarioDAO {
 			while(res.next()){
 				temp = new Usuario();
 				temp.setId(res.getInt("id"));
-				temp.setNome(res.getString("nome"));
 				temp.setLogin(res.getString("login"));
 				temp.setSenha(res.getString("senha"));
 				list.add(temp);

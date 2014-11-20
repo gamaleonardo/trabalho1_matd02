@@ -20,15 +20,6 @@ import javax.ejb.Stateless;
 @WebService(serviceName = "UserServiceDAO")
 @Stateless()
 public class UserServiceDAO {
-
-    /**
-     * This is a sample web service operation
-     * @return String
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + "!";
-    }
     
     /**
      * This is a sample web service operation
@@ -49,7 +40,6 @@ public class UserServiceDAO {
     @WebMethod(operationName = "addUser")
     public void addUser(@WebParam(name = "name") Usuario novo) {
         Usuario usu = new Usuario();
-	usu.setNome(novo.getNome());
 	usu.setLogin(novo.getLogin());
 	usu.setSenha(novo.getSenha());
 	UsuarioDAO dao = new UsuarioDAO();
